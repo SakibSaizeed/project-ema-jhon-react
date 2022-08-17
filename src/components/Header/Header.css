@@ -1,0 +1,22 @@
+.nav-container {
+    background-color: #1c2b35;
+    display: flex;
+    height: 80px;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 140px;
+    padding-right: 140px;
+}
+.nav-container a{
+text-decoration:none;
+font-family: 'Lato';
+font-weight: 400;
+font-size: 17px;
+line-height: 20px;
+letter-spacing: 0.005em;
+margin-left: 32px;
+color:#ffffff;
+}
+.nav-container a:hover{
+    color:orange;
+}
