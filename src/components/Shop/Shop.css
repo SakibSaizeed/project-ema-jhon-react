@@ -15,5 +15,24 @@
 
 .cart-container {
     background: rgba(255, 153, 0, 0.3);
-    
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+
+@media only screen and (max-width: 600px) {
+    .shop-container {
+        display: grid;
+        grid-template-columns: auto auto;
+        width: 100%;
+    }
+    .product-container {
+        grid-template-columns: auto;
+        align-items: center;
+        width: 80%;
+    }
+    .cart-container {
+        background: rgba(180, 170, 156, 0.406);
+        width: 100%;
+    }
 }
