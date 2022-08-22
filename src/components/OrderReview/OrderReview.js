@@ -2,7 +2,7 @@ import React from "react";
 import useProducts from "../../hooks/useProducts";
 
 const OrderReview = () => {
-  const [products, setProducts] = useProducts();
+  const [products, setProducts] = useProducts(); //custom hooks
   return (
     <div>
       This is order review comp

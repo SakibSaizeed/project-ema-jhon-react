@@ -2,14 +2,11 @@ import React, { useEffect, useState } from "react";
 import Product from "../Products/Product";
 import "./Shop.css";
 import ShoppingCart from "../Shopping-Cart/ShoppingCart";
+import useProducts from "../../hooks/useProducts";
 const Shop = () => {
-  const [products, setProduct] = useState([]);
+  const [products, setProduct] = useProducts([]); //custom hooks applied
   const [cart, setCart] = useState([]);
-  useEffect(() => {
-    fetch("./products.json")
-      .then((res) => res.json())
-      .then((data) => setProduct(data));
-  }, []);
+
   function addToCart(product) {
     // console.log(product);
     //cart.push(product);
