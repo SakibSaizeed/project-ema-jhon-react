@@ -3,6 +3,7 @@ import Product from "../Products/Product";
 import "./Shop.css";
 import ShoppingCart from "../Shopping-Cart/ShoppingCart";
 import useProducts from "../../hooks/useProducts";
+import { addToDb } from "../../utilities/fakedb";
 const Shop = () => {
   const [products, setProduct] = useProducts([]); //custom hooks applied
   const [cart, setCart] = useState([]);
@@ -10,8 +11,10 @@ const Shop = () => {
   function addToCart(product) {
     // console.log(product);
     //cart.push(product);
+
     const newCart = [...cart, product];
     setCart(newCart);
+    addToDb(product.id);
     // console.log(newCart[0].name);
   }
 
