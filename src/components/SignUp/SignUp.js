@@ -1,11 +1,18 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
   const [error, setError] = useState("");
+  const [createUserWithEmailAndPasswor, user] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  const navigate = useNavigate();
+
   const handleEmail = (event) => {
     setEmail(event.target.value);
   };
@@ -22,7 +29,13 @@ const SignUp = () => {
       setError("Confirm Password not matched ");
       return;
     }
+    createUserWithEmailAndPasswor(email, password);
   };
+
+  if (user) {
+    navigate("/shop");
+  }
+
   return (
     <div className="form-container">
       <form onSubmit={handleCreateUser}>
@@ -57,7 +70,7 @@ const SignUp = () => {
             onBlur={handleConfirmPass}
           />
         </div>
-        <p style={{ color: "red" }}>{error?.message}</p>
+        <p style={{ color: "red" }}>{error}</p>
         {/* {loading && <p>Loading...</p>} */}
         <input className="form-submit" type="submit" value="Sign Up" />
       </form>
