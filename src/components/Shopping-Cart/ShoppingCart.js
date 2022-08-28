@@ -1,5 +1,7 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./ShoppingCart.css";
+
 const ShoppingCart = (props) => {
   const { cart } = props;
   let total = 0;
@@ -14,6 +16,7 @@ const ShoppingCart = (props) => {
 
     grandTotal = total + shipping + tax;
   }
+  const navigate = useNavigate();
   return (
     <div className="calculation-area">
       <h2>Order Summary</h2>
@@ -22,6 +25,8 @@ const ShoppingCart = (props) => {
       <p>Shipping_charge: ${shipping}</p>
       <p>Tax: ${tax}</p>
       <h4>Grand Total: ${grandTotal.toFixed(2)}</h4>
+      <br />
+      <button onClick={() => navigate("/shipment")}>Order Proceed</button>
     </div>
   );
 };

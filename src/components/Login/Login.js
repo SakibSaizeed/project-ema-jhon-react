@@ -10,7 +10,7 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location?.state?.from?.pathname || "/";
+  const from = location?.state?.from.pathname || "/";
   const handleEmailBlur = (e) => {
     setEmail(e.target.value);
   };
